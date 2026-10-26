@@ -319,6 +319,11 @@ def viewer_3d_html(smiles: str, spin: bool, width=600, height=420) -> str:
 # ----------------------------------------------------------------------------
 # APP
 # ----------------------------------------------------------------------------
+# Edit these details to change the "Developed by" tab
+DEVELOPER_NAME = "Sanjana T"
+DEVELOPER_COURSE = "B.Tech CSE (AIML)"
+DEVELOPER_COLLEGE = "SRM IST Tiruchirappalli"
+
 st.set_page_config(page_title="Compound Dashboard", page_icon="🧪", layout="wide")
 st.title("🧪 Chemical Compound Dashboard")
 
@@ -329,6 +334,7 @@ tabs = st.tabs([
     "4. Chemical Properties",
     "5. SMILES",
     "6. Assessment",
+    "7. Developed by",
 ])
 
 # ---- 1. Compound -----------------------------------------------------------
@@ -408,3 +414,11 @@ with tabs[5]:
         st.subheader(f"Score: {score} / {len(data['questions'])}")
         if score == len(data["questions"]):
             st.balloons()
+
+# ---- 7. Developed by -------------------------------------------------------
+with tabs[6]:
+    st.header("7. Developed by")
+    st.subheader(DEVELOPER_NAME)
+    st.write(DEVELOPER_COURSE)
+    st.write(DEVELOPER_COLLEGE)
+    st.caption("Chemical Compound Dashboard built with Python, Streamlit and RDKit.")
